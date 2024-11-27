@@ -58,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
         } else if (action.equals("*")) {
             res = num1*num2;
         } else if (action.equals("/")) {
-            res = num1/num2;
+            if(num2==0)
+                res=0;
+            else
+                res = num1/num2;
         }
         finalResult.setText(res+"");
     }
