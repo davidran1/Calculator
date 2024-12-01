@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -50,18 +51,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void equalFunc(View view) {
-        if(action.equals("+")) {//calculate the final result
-            res= num1+num2;
-        } else if (action.equals("-")) {
-            res= num1-num2;
-        } else if (action.equals("*")) {
-            res = num1*num2;
-        } else if (action.equals("/")) {
-            if(num2==0)
-                res=0;
-            else
-                res = num1/num2;
+        switch (action) {
+            case "+": //calculate the final result
+                res = num1 + num2;
+                break;
+            case "-":
+                res = num1 - num2;
+                break;
+            case "*":
+                res = num1 * num2;
+                break;
+            case "/":
+                if (num2 == 0)
+                    res = 0;
+                else
+                    res = num1 / num2;
+                break;
         }
         finalResult.setText(res+"");
     }
